@@ -9,7 +9,7 @@ def basic_email():
     world.emailattributes = {}
     world.emailattributes['api_user'] = 'username'
     world.emailattributes['api_key'] = 'password'
-    world.emailattributes['to'] = 'sample_email@gmail.com'
+    world.emailattributes['to'] = 'email@gmail.com'
     world.emailattributes['from'] = 'jjbigglsworth@sendgrid.com'
     world.emailattributes['subject'] = 'The party is in the back room'
     world.emailattributes['text'] = 'Why aren\'t you here?  I\'d really like to beat you in a game of poker!'
@@ -24,11 +24,11 @@ def generate_basic_email(step):
 def generate_advanced_email(step):
     basic_email()
     world.emailattributes['html'] = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"></head><body bgcolor="#ffffff" text="#000000">We are having a party!<br><br>Woo hoo,<br>Eric<br></i></div></body></html>"""
-    world.emailattributes['bcc'] = 'sample_bcc@gmail.com'
+    world.emailattributes['bcc'] = 'bcc_email@gmail.com'
     world.emailattributes['date'] = formatdate()
-    world.emailattributes['headers'] = '{\"X-Mailer\": \"Stinky Microsoft Outlook\"}'
+    world.emailattributes['headers'] = '{"X-Mailer": "Stinky Microsoft Outlook"}'
     world.emailattributes['fromname'] = 'JJ Bigglesworth'
-    world.emailattributes['headers'] = '{"category" : "interview"}'
+    world.emailattributes['x-smtpapi'] = '{"category" : "interview"}'
     world.emailattributes['files'] = 'eric.jpg'
     #world.fileattach = open('eric.jpg', 'rb').read()
     world.call = world.rootURL+'?'+urllib.urlencode(world.emailattributes)
